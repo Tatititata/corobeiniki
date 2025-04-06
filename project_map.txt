@@ -1,0 +1,52 @@
+src/
+│─── brick_game/         
+│     │─── tetris/
+│     │     │─── game_logic.c
+│     │     │─── game_logic.h   
+│     │─── specification.c # userInput, updateCurrentState
+│     L─── specification.h
+│
+│─── gui/     
+│     │─── input.c  # get_user_input
+|     │─── input.h   
+│     │─── renderer.c      # ncurses-реализация тетрис (уже есть)
+│     │─── renderer.h      
+│     L─── main.c      
+│
+L─── Makefile
+
+
+
+brick_game_qt/
+├── brick_game/           # Ваша текущая логика (Tetris/Snake)
+│   ├── tetris/           # (без изменений)
+│   ├── specification.h   # Общий API
+│   └── ...
+├── qt/
+│   ├── view/             # Классы отрисовки
+│   │   ├── tetrisview.h  # Рендеринг тетриса через QWidget
+│   │   └── ...
+│   ├── controller/       # Тонкие контроллеры
+│   │   ├── tetriscontroller.h
+│   │   └── ...
+│   └── main.cpp          # Инициализация приложения
+└── CMakeLists.txt        # Конфигурация сборки
+
+
+
+
+
+src/
+│─── brick_game/         # Общая логика (ваша текущая папка)
+│     │─── tetris/       # Логика тетриса
+│     │─── snake/        # Логика змейки (будет добавлена)
+│     L─── specification.h/c # Общий API для всех игр
+│
+│─── cli/                # Существующий консольный интерфейс (ncurses)
+│
+│─── qt/                 # Новый GUI на Qt
+│     │─── view/         # Отрисовка и окна (QWidgets/QGraphicsView)
+│     │─── controller/   # Тонкие контроллеры (связь View-Model)
+│     L─── main.cpp       # Точка входа Qt
+│
+L─── CMakeLists.txt      # Сборка через CMake (Qt использует его)
