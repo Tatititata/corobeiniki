@@ -1,15 +1,15 @@
 src/
-│─── brick_game/         
-│     │─── tetris/
+│─── collision_simulator/         
+│     │─── t_e_t_r_i_s/
 │     │     │─── game_logic.c
 │     │     │─── game_logic.h   
-│     │─── specification.c # userInput, updateCurrentState
+│     │─── specification.c 
 │     L─── specification.h
 │
 │─── gui/     
-│     │─── input.c  # get_user_input
+│     │─── input.c  
 |     │─── input.h   
-│     │─── renderer.c      # ncurses-реализация тетрис (уже есть)
+│     │─── renderer.c     
 │     │─── renderer.h      
 │     L─── main.c      
 │

@@ -2,11 +2,29 @@
 
 ## Overview
 
-This project is a command-line implementation of the classic Tetris game. It's built using C and utilizes the ncurses library for terminal-based graphics.
+This project is a command-line implementation of the classic T_e_t_r_i_s game. It's built using C and utilizes the ncurses library for terminal-based graphics.
+
+src/
+├── collision_simulator/         
+│   ├── specification.c 
+│   ├── specification.h
+│   └── t_e_t_r_i_s/
+│       ├── game_logic.c
+│       └── game_logic.h   
+│
+├── gui/     
+│   ├── input.c  
+│   ├── input.h   
+│   ├── renderer.c     
+│   ├── renderer.h      
+│   └── main.c      
+│
+└── Makefile
+
 
 ## Features
 
-*   Classic Tetris gameplay
+*   Classic T_e_t_r_i_s gameplay
 *   Terminal-based graphical interface using ncurses
 *   Score tracking
 *   Basic game controls (left, right, rotate, drop)
@@ -29,7 +47,7 @@ This project is a command-line implementation of the classic Tetris game. It's b
     make
     ```
 
-    This will compile the source code and create an executable file named `t_e_t_r_i_s`.
+    This will compile the source code and create an executable file named `game`.
 
 ## Installation
 
@@ -68,13 +86,13 @@ This project is a command-line implementation of the classic Tetris game. It's b
 1.  **Run from the project directory:**
 
     ```
-    ./t_e_t_r_i_s
+    ./game
     ```
 
 2.  **If installed:**
 
     ```
-    t_e_t_r_i_s
+    game
     ```
 
 ## Controls
@@ -146,7 +164,7 @@ The game logic is driven by a Finite State Machine (FSM). Here's a schematic rep
 1.  **Run the game under Valgrind:**
 
     ```
-    make valgrind_t_e_t_r_i_s
+    make valgrind_game
     ```
 
     This will run the game under Valgrind, a memory debugging tool, to detect memory leaks and other memory-related errors.
@@ -187,7 +205,7 @@ The game logic is driven by a Finite State Machine (FSM). Here's a schematic rep
     make dist
     ```
 
-    This will create a tarball archive (`t_e_t_r_i_s_dist.tar.gz`) containing the source code, README, and Makefile, suitable for distribution.
+    This will create a tarball archive (`game_dist.tar.gz`) containing the source code, README, and Makefile, suitable for distribution.
 
 ## Clean Up
 
