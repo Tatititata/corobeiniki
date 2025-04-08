@@ -3,7 +3,7 @@
 ## Overview
 
 This project is a command-line implementation of the classic T_e_t_r_i_s game. It's built using C and utilizes the ncurses library for terminal-based graphics.
-
+```
 src/
 ├── collision_simulator/         
 │   ├── specification.c 
@@ -20,7 +20,7 @@ src/
 │   └── main.c      
 │
 └── Makefile
-
+```
 
 ## Features
 
