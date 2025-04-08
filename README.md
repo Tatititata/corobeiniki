@@ -1,4 +1,4 @@
-# Tetris Game (CLI Version)
+# T_e_t_r_i_s Game (CLI Version)
 
 ## Overview
 
