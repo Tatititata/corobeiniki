@@ -49,6 +49,7 @@ all: game
 
 game: $(LIB_DIR)/$(LIB_NAME) $(GUI_OBJECTS)
 	$(CC) $(GUI_OBJECTS) -o $@ $(LDFLAGS)
+	rm -rf ./build
 
 $(LIB_DIR)/$(LIB_NAME): $(LIB_OBJECTS)
 	@mkdir -p $(LIB_DIR)
