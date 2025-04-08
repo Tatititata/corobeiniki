@@ -25,7 +25,7 @@ typedef enum {
   Up,         ///< Rotate the current piece.
   Down,       ///< Drop the current.
   Action      ///< No action.
-} UserAction_t;
+} InputEvent_t;
 
 /**
  * @brief Structure containing game information.
@@ -38,19 +38,19 @@ typedef struct {
   int level;       ///< Current level of the game.
   int speed;       ///< Game speed (determines how quickly pieces fall).
   int pause;       ///< Pause state (0 = not paused, !0 = paused).
-} GameInfo_t;
+} StateInfo_t;
 
 /**
  * @brief Handles user input.
  * @param action The user action to perform.
  * @param hold A boolean indicating whether the key is being held down.
  */
-void userInput(UserAction_t action, bool hold);
+void userInput(InputEvent_t action, bool hold);
 
 /**
  * @brief Updates the current game state.
- * @return The updated GameInfo_t structure.
+ * @return The updated StateInfo_t structure.
  */
-GameInfo_t updateCurrentState();
+StateInfo_t game_state_updating();
 
 #endif

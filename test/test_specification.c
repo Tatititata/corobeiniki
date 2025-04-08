@@ -66,13 +66,13 @@ END_TEST
 START_TEST(test_update_current_state) {
   Extend *game = get_game();
   initialize_game(game);
-  GameInfo_t info = updateCurrentState();
+  StateInfo_t info = game_state_updating();
   ck_assert_ptr_nonnull(info.field);
   terminate_game();
 }
 END_TEST
 
-START_TEST(test_gameinfo_t_game) {
+START_TEST(test_StateInfo_t_game) {
   Extend *game = get_game();
   update_game(game);
   for (int i = 0; i < 22; i++) run_game(game);
@@ -82,7 +82,7 @@ START_TEST(test_gameinfo_t_game) {
 END_TEST
 
 Suite *specification() {
-  Suite *s = suite_create("s21_tetris spec");
+  Suite *s = suite_create("s21_t_e_t_r_i_s spec");
   TCase *tc_core = tcase_create("Specification");
   tcase_add_test(tc_core, test_user_input_start);
   tcase_add_test(tc_core, test_user_input_pause);
@@ -92,7 +92,7 @@ Suite *specification() {
   tcase_add_test(tc_core, test_user_input_drop);
   tcase_add_test(tc_core, test_user_input_terminate);
   tcase_add_test(tc_core, test_update_current_state);
-  tcase_add_test(tc_core, test_gameinfo_t_game);
+  tcase_add_test(tc_core, test_StateInfo_t_game);
 
   suite_add_tcase(s, tc_core);
   return s;

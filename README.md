@@ -29,7 +29,7 @@ This project is a command-line implementation of the classic Tetris game. It's b
     make
     ```
 
-    This will compile the source code and create an executable file named `tetris`.
+    This will compile the source code and create an executable file named `t_e_t_r_i_s`.
 
 ## Installation
 
@@ -39,7 +39,7 @@ This project is a command-line implementation of the classic Tetris game. It's b
     make install
     ```
 
-    This will install the `tetris` executable to `/usr/local/bin` (or the directory specified by `PREFIX` and `DESTDIR` in the Makefile). You might need `sudo` for permissions.
+    This will install the `t_e_t_r_i_s` executable to `/usr/local/bin` (or the directory specified by `PREFIX` and `DESTDIR` in the Makefile). You might need `sudo` for permissions.
 
     ```
     make DESTDIR=/path/to/installation install
@@ -52,7 +52,7 @@ This project is a command-line implementation of the classic Tetris game. It's b
     make uninstall
     ```
 
-    This will remove the tetris binary from the installation directory.
+    This will remove the t_e_t_r_i_s binary from the installation directory.
 
 
     If you installed the program to a custom directory, make sure to specify the same DESTDIR:
@@ -68,13 +68,13 @@ This project is a command-line implementation of the classic Tetris game. It's b
 1.  **Run from the project directory:**
 
     ```
-    ./tetris
+    ./t_e_t_r_i_s
     ```
 
 2.  **If installed:**
 
     ```
-    tetris
+    t_e_t_r_i_s
     ```
 
 ## Controls
@@ -146,7 +146,7 @@ The game logic is driven by a Finite State Machine (FSM). Here's a schematic rep
 1.  **Run the game under Valgrind:**
 
     ```
-    make valgrind_tetris
+    make valgrind_t_e_t_r_i_s
     ```
 
     This will run the game under Valgrind, a memory debugging tool, to detect memory leaks and other memory-related errors.
@@ -187,7 +187,7 @@ The game logic is driven by a Finite State Machine (FSM). Here's a schematic rep
     make dist
     ```
 
-    This will create a tarball archive (`tetris_dist.tar.gz`) containing the source code, README, and Makefile, suitable for distribution.
+    This will create a tarball archive (`t_e_t_r_i_s_dist.tar.gz`) containing the source code, README, and Makefile, suitable for distribution.
 
 ## Clean Up
 

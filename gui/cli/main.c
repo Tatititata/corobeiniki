@@ -1,17 +1,17 @@
-#include "../../brick_game/specification.h"
-#include "../../brick_game/tetris/game_logic.h"
+#include "../../collision_simulator/specification.h"
+#include "../../collision_simulator/t_e_t_r_i_s/game_logic.h"
 #include "input.h"
 #include "renderer.h"
 
 int main() {
   init_ncurses();
 
-  UserAction_t action = Pause;
+  InputEvent_t action = Pause;
   bool hold = false;
-  GameInfo_t game;
+  StateInfo_t game;
 
   while (action != Terminate) {
-    game = updateCurrentState();
+    game = game_state_updating();
     render_game(&game);
     get_user_input(&action, &hold, game.pause);
     userInput(action, hold);

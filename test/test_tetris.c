@@ -85,8 +85,8 @@ START_TEST(test_block_fits) {
 }
 END_TEST
 
-Suite *tetris() {
-  Suite *s = suite_create("s21_tetris tests");
+Suite *t_e_t_r_i_s() {
+  Suite *s = suite_create("s21_t_e_t_r_i_s tests");
   TCase *tc_core = tcase_create("Tetris");
   tcase_add_test(tc_core, test_initialize_game);
   tcase_add_test(tc_core, test_move_left);

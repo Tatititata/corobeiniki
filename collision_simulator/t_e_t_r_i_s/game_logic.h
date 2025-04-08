@@ -28,7 +28,7 @@ typedef struct {
   uint8_t rot;           ///< The rotation of the current block.
   uint8_t next;          ///< The next block.
   Game_state_t state;    ///< The current game state.
-  GameInfo_t game;       ///< The GameInfo_t structure.
+  StateInfo_t game;       ///< The StateInfo_t structure.
 } Extend;
 
 /**

@@ -1,9 +1,9 @@
 #include "renderer.h"
 
-WINDOW *get_tetris() {
-  static WINDOW *tetris = NULL;
-  if (!tetris) tetris = newwin(H + 2, (W * CELL_WIDTH) + 2, 0, 0);
-  return tetris;
+WINDOW *get_t_e_t_r_i_s() {
+  static WINDOW *t_e_t_r_i_s = NULL;
+  if (!t_e_t_r_i_s) t_e_t_r_i_s = newwin(H + 2, (W * CELL_WIDTH) + 2, 0, 0);
+  return t_e_t_r_i_s;
 }
 
 WINDOW *get_next() {
@@ -22,21 +22,21 @@ WINDOW *get_controls() {
   return controls;
 }
 
-void render_game(const GameInfo_t *game) {
-  WINDOW *tetris = get_tetris();
+void render_game(const StateInfo_t *game) {
+  WINDOW *t_e_t_r_i_s = get_t_e_t_r_i_s();
   WINDOW *next = get_next();
   refresh();
-  box(tetris, 0, 0);
+  box(t_e_t_r_i_s, 0, 0);
   box(next, 0, 0);
   print_next_screen(next, game->level, game->score, game->high_score);
   if (game->pause) {
-    print_pause_screen(tetris, next, game->pause, game->score,
+    print_pause_screen(t_e_t_r_i_s, next, game->pause, game->score,
                        game->high_score);
   } else {
-    print_playing_field(tetris, game->field, H, W, 1, 1);
+    print_playing_field(t_e_t_r_i_s, game->field, H, W, 1, 1);
     print_playing_field(next, game->next, 4, 4, 3, 2);
   }
-  wrefresh(tetris);
+  wrefresh(t_e_t_r_i_s);
   wrefresh(next);
   wrefresh(get_controls());
 }
@@ -78,25 +78,25 @@ void clear_playing_field(WINDOW *win, uint8_t h, uint8_t w, uint8_t dy,
   }
 }
 
-void print_pause_screen(WINDOW *tetris, WINDOW *next, int pause, int score,
+void print_pause_screen(WINDOW *t_e_t_r_i_s, WINDOW *next, int pause, int score,
                         int high_score) {
-  clear_playing_field(tetris, H, W * CELL_WIDTH, 1, 1);
+  clear_playing_field(t_e_t_r_i_s, H, W * CELL_WIDTH, 1, 1);
   clear_playing_field(next, 4, 4 * CELL_WIDTH, 3, 2);
   if (pause == 1) {
-    mvwprintw(tetris, 9, 2, "Pause");
-    mvwprintw(tetris, 11, 2, "'p' to resume");
+    mvwprintw(t_e_t_r_i_s, 9, 2, "Pause");
+    mvwprintw(t_e_t_r_i_s, 11, 2, "'p' to resume");
   } else if (pause == 2) {
-    mvwprintw(tetris, 9, 2, "Press");
-    mvwprintw(tetris, 11, 2, "Enter ");
-    mvwprintw(tetris, 13, 2, "to start");
+    mvwprintw(t_e_t_r_i_s, 9, 2, "Press");
+    mvwprintw(t_e_t_r_i_s, 11, 2, "Enter ");
+    mvwprintw(t_e_t_r_i_s, 13, 2, "to start");
   } else if (pause == 3) {
-    mvwprintw(tetris, 6, 3, "Game Over");
-    mvwprintw(tetris, 9, 3, "Your");
-    mvwprintw(tetris, 10, 3, "score: %d", score);
-    mvwprintw(tetris, 12, 3, "High");
-    mvwprintw(tetris, 13, 3, "score: %d", high_score);
-    mvwprintw(tetris, 17, 2, "Press Enter");
-    mvwprintw(tetris, 18, 2, "to start new game");
+    mvwprintw(t_e_t_r_i_s, 6, 3, "Game Over");
+    mvwprintw(t_e_t_r_i_s, 9, 3, "Your");
+    mvwprintw(t_e_t_r_i_s, 10, 3, "score: %d", score);
+    mvwprintw(t_e_t_r_i_s, 12, 3, "High");
+    mvwprintw(t_e_t_r_i_s, 13, 3, "score: %d", high_score);
+    mvwprintw(t_e_t_r_i_s, 17, 2, "Press Enter");
+    mvwprintw(t_e_t_r_i_s, 18, 2, "to start new game");
   }
 }
 
@@ -146,10 +146,10 @@ void print_controls(WINDOW *controls) {
 }
 
 void end_ncurses() {
-  WINDOW *tetris = get_tetris();
+  WINDOW *t_e_t_r_i_s = get_t_e_t_r_i_s();
   WINDOW *next = get_next();
   WINDOW *controls = get_controls();
-  delwin(tetris);
+  delwin(t_e_t_r_i_s);
   delwin(next);
   delwin(controls);
   curs_set(1);

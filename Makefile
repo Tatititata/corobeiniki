@@ -18,7 +18,7 @@ endif
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -std=c11 -I.
-LDFLAGS += $(CURSES_LIB) -L./build/lib -l_tetris
+LDFLAGS += $(CURSES_LIB) -L./build/lib -l_game
 GCOV_FLAGS = -fprofile-arcs -ftest-coverage
 CHECK_LIBS += -lpthread -lm
 
@@ -29,32 +29,32 @@ PREFIX ?= $(HOME)/.local
 DESTDIR ?=
 BINDIR = $(DESTDIR)$(PREFIX)/bin
 
-LIB_SRC_DIR = ./brick_game
-TETRIS_SRC_DIR = $(LIB_SRC_DIR)/tetris
+LIB_SRC_DIR = ./collision_simulator
+T_ETRIS_SRC_DIR = $(LIB_SRC_DIR)/t_e_t_r_i_s
 GUI_DIR = ./gui/cli
 OBJ_DIR = ./build/obj
 LIB_DIR = ./build/lib
 TEST_DIR = ./test
 
 
-LIB_SOURCES = $(LIB_SRC_DIR)/specification.c $(TETRIS_SRC_DIR)/game_logic.c 
+LIB_SOURCES = $(LIB_SRC_DIR)/specification.c $(T_ETRIS_SRC_DIR)/game_logic.c 
 GUI_SOURCES = $(GUI_DIR)/main.c $(GUI_DIR)/input.c $(GUI_DIR)/renderer.c
 TEST_SRC = $(wildcard $(TEST_DIR)/*.c) 
 
-LIB_OBJECTS = $(patsubst $(LIB_SRC_DIR)/%.c,$(OBJ_DIR)/brick_game/%.o,$(LIB_SOURCES))
+LIB_OBJECTS = $(patsubst $(LIB_SRC_DIR)/%.c,$(OBJ_DIR)/collision_simulator/%.o,$(LIB_SOURCES))
 GUI_OBJECTS = $(patsubst $(GUI_DIR)/%.c,$(OBJ_DIR)/gui/cli/%.o,$(GUI_SOURCES))
-LIB_NAME = lib_tetris.a  
+LIB_NAME = lib_game.a  
 
-all: tetris
+all: game
 
-tetris: $(LIB_DIR)/$(LIB_NAME) $(GUI_OBJECTS)
+game: $(LIB_DIR)/$(LIB_NAME) $(GUI_OBJECTS)
 	$(CC) $(GUI_OBJECTS) -o $@ $(LDFLAGS)
 
 $(LIB_DIR)/$(LIB_NAME): $(LIB_OBJECTS)
 	@mkdir -p $(LIB_DIR)
 	ar rcs $@ $^
 
-$(OBJ_DIR)/brick_game/%.o: $(LIB_SRC_DIR)/%.c
+$(OBJ_DIR)/collision_simulator/%.o: $(LIB_SRC_DIR)/%.c
 	@mkdir -p $(@D)
 	$(CC) -c $(CFLAGS) $< -o $@
 
@@ -65,21 +65,21 @@ $(OBJ_DIR)/gui/cli/%.o: $(GUI_DIR)/%.c
 install: all
 	@echo "Installing to $(BINDIR)"
 	mkdir -p $(BINDIR)
-	install -m 755 tetris $(BINDIR)
-	rm -rf ./build tetris
+	install -m 755 game $(BINDIR)
+	rm -rf ./build game
 
 uninstall:
 	@echo "Removing from $(BINDIR)"
-	rm -f $(BINDIR)/tetris
+	rm -f $(BINDIR)/game
 	rmdir --ignore-fail-on-non-empty $(BINDIR) || true
 
 clean:
-	rm -rf ./build tetris
+	rm -rf ./build game
 	rm -f $(TEST_DIR)/*.gcno $(TEST_DIR)/*.gcda 
 	rm -f *.gcno *.gcda coverage_filtered.info
 	rm -f *.o unit_tests
 	rm -f $(OBJ_DIR)/*.o coverage.info 
-	rm -rf ./coverage_report tetris_dist.tar.gz
+	rm -rf ./coverage_report game_dist.tar.gz
 	rm -rf ./html ./latex
 
 dvi: clean
@@ -88,8 +88,8 @@ dvi: clean
 	$(OPEN) html/index.html
 
 dist:
-	tar czvf tetris_dist.tar.gz \
-		./brick_game \
+	tar czvf game_dist.tar.gz \
+		./collision_simulator \
 		./gui \
 		./test \
 		./Doxyfile \
@@ -100,7 +100,7 @@ dist:
 test: $(LIB_DIR)/$(LIB_NAME) 
 	$(CC) $(CFLAGS) $(CHECK_INC) $(TEST_SRC) $(GCOV_FLAGS) \
 	$(LIB_SOURCES) -o unit_tests \
-	$(CHECK_LIBS) -L$(LIB_DIR) -l_tetris $(LDFLAGS)
+	$(CHECK_LIBS) -L$(LIB_DIR) -l_game $(LDFLAGS)
 	./unit_tests
 
 gcov_report: test
@@ -110,16 +110,16 @@ gcov_report: test
 	genhtml coverage_filtered.info --output-directory ./coverage_report
 	@$(OPEN) ./coverage_report/index.html || echo "Could not open report"
 
-valgrind_tetris: clean all
+valgrind_game: clean all
 	valgrind \
     --leak-check=full \
     --track-origins=yes \
     --show-leak-kinds=all \
     --suppressions=ncurses.supp \
     --trace-children=yes \
-    --log-file=val_tetris.txt \
+    --log-file=val_game.txt \
 	-s \
-    ./tetris
+    ./game
 
 valgrind_tests: clean test
 	valgrind \
@@ -142,5 +142,5 @@ cl:
 cpp: 
 	cppcheck --enable=all --force --error-exitcode=1 --std=c11 --suppress=missingIncludeSystem --inconclusive --language=c --check-level=exhaustive --verbose ../src
 
-.PHONY: all install uninstall clean dvi dist test gcov_report valgrind_tetris cl cpp
+.PHONY: all install uninstall clean dvi dist test gcov_report valgrind_game cl cpp
 

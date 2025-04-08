@@ -1,8 +1,8 @@
 #include "specification.h"
 
-#include "tetris/game_logic.h"
+#include "t_e_t_r_i_s/game_logic.h"
 
-void userInput(UserAction_t action, bool hold) {
+void userInput(InputEvent_t action, bool hold) {
   if (action == Start) {
     start_game();
   } else if (action == Pause) {
@@ -22,7 +22,7 @@ void userInput(UserAction_t action, bool hold) {
   }
 }
 
-GameInfo_t updateCurrentState() {
+StateInfo_t game_state_updating() {
   Extend *game = get_game();
   update_game(game);
   return game->game;

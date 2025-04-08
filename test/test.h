@@ -3,10 +3,10 @@
 
 #include <check.h>
 
-#include "../brick_game/specification.h"
-#include "../brick_game/tetris/game_logic.h"
+#include "../collision_simulator/specification.h"
+#include "../collision_simulator/t_e_t_r_i_s/game_logic.h"
 #include "../gui/cli/renderer.h"
 
-Suite *tetris();
+Suite *t_e_t_r_i_s();
 Suite *specification();
 #endif

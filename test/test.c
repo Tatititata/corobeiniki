@@ -8,7 +8,7 @@ void run_case(Suite(*test_case)) {
 }
 
 void run_test() {
-  Suite *suite_cases[] = {tetris(), specification(), NULL};
+  Suite *suite_cases[] = {t_e_t_r_i_s(), specification(), NULL};
 
   for (Suite **test_case = suite_cases; *test_case != NULL; test_case++)
     run_case(*test_case);

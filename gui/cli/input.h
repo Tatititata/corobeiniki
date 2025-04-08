@@ -1,8 +1,8 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "../../brick_game/specification.h"
+#include "../../collision_simulator/specification.h"
 
-void get_user_input(UserAction_t *action, bool *hold, int state);
+void get_user_input(InputEvent_t *action, bool *hold, int state);
 
 #endif
