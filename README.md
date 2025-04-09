@@ -106,7 +106,7 @@ src/
 
 
 <video width="320" height="240" controls>
-  <source src="assets/output.webm" type="video/webm">
+  <source src="output.webm" type="video/webm">
   Your browsed does not support video format
 </video>
 
