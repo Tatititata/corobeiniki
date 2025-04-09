@@ -17,6 +17,7 @@ void print_playing_field(WINDOW *win, int **field, uint8_t h, uint8_t w,
 void print_controls(WINDOW *controls);
 void clear_playing_field(WINDOW *win, uint8_t h, uint8_t w, uint8_t dy,
                          uint8_t dx);
+void clear_next(WINDOW *next);
 WINDOW *get_t_e_t_r_i_s();
 WINDOW *get_next();
 WINDOW *get_controls();

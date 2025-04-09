@@ -90,6 +90,7 @@ void print_pause_screen(WINDOW *t_e_t_r_i_s, WINDOW *next, int pause, int score,
     mvwprintw(t_e_t_r_i_s, 11, 2, "Enter ");
     mvwprintw(t_e_t_r_i_s, 13, 2, "to start");
   } else if (pause == 3) {
+    clear_next(next);
     mvwprintw(t_e_t_r_i_s, 6, 3, "Game Over");
     mvwprintw(t_e_t_r_i_s, 9, 3, "Your");
     mvwprintw(t_e_t_r_i_s, 10, 3, "score: %d", score);
@@ -155,4 +156,10 @@ void end_ncurses() {
   curs_set(1);
   echo();
   endwin();
+}
+
+void clear_next(WINDOW *next) {
+  mvwprintw(next, 9, 3, "     ");
+  mvwprintw(next, 12, 3, "     ");
+  mvwprintw(next, 16, 3, "     ");
 }

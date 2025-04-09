@@ -134,7 +134,7 @@ valgrind_tests: clean test
 
 cl:
 	clang-format -i  $(LIB_SRC_DIR)/*.c  $(LIB_SRC_DIR)/*.h 
-	clang-format -i  $(TETRIS_SRC_DIR)/*.c  $(TETRIS_SRC_DIR)/*.h 
+	clang-format -i  $(T_ETRIS_SRC_DIR)/*.c  $(T_ETRIS_SRC_DIR)/*.h 
 	clang-format -i  $(GUI_DIR)/*.c  $(GUI_DIR)/*.h 
 	clang-format -i  $(TEST_DIR)/*.c  $(TEST_DIR)/*.h 
 
