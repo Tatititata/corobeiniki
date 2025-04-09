@@ -104,6 +104,13 @@ src/
 *   **Pause:** 'p' key
 *   **Quit:** 'q' key
 
+
+<video width="320" height="240" controls>
+  <source src="assets/output.webm" type="video/webm">
+  Your browsed does not support video format
+</video>
+
+
 ## Finite State Machine (FSM) Schematic
 
 The game logic is driven by a Finite State Machine (FSM). Here's a schematic representation of the FSM:
