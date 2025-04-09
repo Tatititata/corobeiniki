@@ -133,12 +133,10 @@ valgrind_tests: clean test
     ./unit_tests
 
 cl:
-	cp ../materials/linters/.clang-format .clang-format
 	clang-format -i  $(LIB_SRC_DIR)/*.c  $(LIB_SRC_DIR)/*.h 
 	clang-format -i  $(TETRIS_SRC_DIR)/*.c  $(TETRIS_SRC_DIR)/*.h 
 	clang-format -i  $(GUI_DIR)/*.c  $(GUI_DIR)/*.h 
 	clang-format -i  $(TEST_DIR)/*.c  $(TEST_DIR)/*.h 
-	rm -f .clang-format
 
 cpp: 
 	cppcheck --enable=all --force --error-exitcode=1 --std=c11 --suppress=missingIncludeSystem --inconclusive --language=c --check-level=exhaustive --verbose ../src
