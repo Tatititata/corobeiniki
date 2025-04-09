@@ -105,10 +105,10 @@ src/
 *   **Quit:** 'q' key
 
 
-<video width="320" height="240" controls>
-  <source src="output.webm" type="video/webm">
-  Your browsed does not support video format
-</video>
+📹 [Game sample video (output.webm)](assets/output.webm)
+
+
+![Screenshot](screenshot.png)
 
 
 ## Finite State Machine (FSM) Schematic
