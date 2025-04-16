@@ -30,14 +30,14 @@ DESTDIR ?=
 BINDIR = $(DESTDIR)$(PREFIX)/bin
 
 LIB_SRC_DIR = ./collision_simulator
-T_ETRIS_SRC_DIR = $(LIB_SRC_DIR)/t_e_t_r_i_s
+CUBIX_SRC_DIR = $(LIB_SRC_DIR)/cubix
 GUI_DIR = ./gui/cli
 OBJ_DIR = ./build/obj
 LIB_DIR = ./build/lib
 TEST_DIR = ./test
 
 
-LIB_SOURCES = $(LIB_SRC_DIR)/specification.c $(T_ETRIS_SRC_DIR)/game_logic.c 
+LIB_SOURCES = $(LIB_SRC_DIR)/specification.c $(CUBIX_SRC_DIR)/game_logic.c 
 GUI_SOURCES = $(GUI_DIR)/main.c $(GUI_DIR)/input.c $(GUI_DIR)/renderer.c
 TEST_SRC = $(wildcard $(TEST_DIR)/*.c) 
 
@@ -134,7 +134,7 @@ valgrind_tests: clean test
 
 cl:
 	clang-format -i  $(LIB_SRC_DIR)/*.c  $(LIB_SRC_DIR)/*.h 
-	clang-format -i  $(T_ETRIS_SRC_DIR)/*.c  $(T_ETRIS_SRC_DIR)/*.h 
+	clang-format -i  $(CUBIX_SRC_DIR)/*.c  $(CUBIX_SRC_DIR)/*.h 
 	clang-format -i  $(GUI_DIR)/*.c  $(GUI_DIR)/*.h 
 	clang-format -i  $(TEST_DIR)/*.c  $(TEST_DIR)/*.h 
 

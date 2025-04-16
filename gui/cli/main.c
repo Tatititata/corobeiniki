@@ -1,5 +1,5 @@
 #include "../../collision_simulator/specification.h"
-#include "../../collision_simulator/t_e_t_r_i_s/game_logic.h"
+#include "../../collision_simulator/cubix/game_logic.h"
 #include "input.h"
 #include "renderer.h"
 

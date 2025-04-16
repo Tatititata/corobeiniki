@@ -82,7 +82,7 @@ START_TEST(test_StateInfo_t_game) {
 END_TEST
 
 Suite *specification() {
-  Suite *s = suite_create("s21_t_e_t_r_i_s spec");
+  Suite *s = suite_create("cubix spec");
   TCase *tc_core = tcase_create("Specification");
   tcase_add_test(tc_core, test_user_input_start);
   tcase_add_test(tc_core, test_user_input_pause);

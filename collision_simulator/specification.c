@@ -1,6 +1,6 @@
 #include "specification.h"
 
-#include "t_e_t_r_i_s/game_logic.h"
+#include "cubix/game_logic.h"
 
 void userInput(InputEvent_t action, bool hold) {
   if (action == Start) {
