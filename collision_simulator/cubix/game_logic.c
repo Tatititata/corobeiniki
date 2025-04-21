@@ -257,9 +257,10 @@ uint8_t block_fits(const uint8_t *arr, uint8_t current, int8_t y, int8_t x,
 }
 
 void stay_still(uint8_t n) {
-  clock_t start = clock();
-  double wait_time = 0.0025 * n;
-  while ((double)(clock() - start) / CLOCKS_PER_SEC < wait_time);
+  struct timespec ts;
+  ts.tv_sec = 0;
+  ts.tv_nsec = 2500000 * n; // 2.5 мс * n
+  nanosleep(&ts, NULL);
 }
 
 void set_next(Extend *game) {
