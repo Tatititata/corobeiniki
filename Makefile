@@ -17,7 +17,7 @@ endif
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -std=c11 -I.
+CFLAGS = -Wall -Wextra -Werror -std=c11 -D_POSIX_C_SOURCE=199309L -I.
 LDFLAGS += $(CURSES_LIB) -L./build/lib -l_game
 GCOV_FLAGS = -fprofile-arcs -ftest-coverage
 CHECK_LIBS += -lpthread -lm

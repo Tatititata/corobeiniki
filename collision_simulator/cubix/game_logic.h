@@ -2,7 +2,6 @@
 #define GAME_LOGIC_H
 
 #include <string.h>
-
 #include "../specification.h"
 
 /**
